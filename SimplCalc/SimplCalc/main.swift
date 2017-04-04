@@ -38,12 +38,12 @@ while continute {
             print("To exit, type \"exit\" and hit enter.")
             print("Example: exit")
             print("")
-        } else if (response == "exit") {
+        } else if (response == "exit") { // exit the program
             continute = false;
-        } else if (response?.hasSuffix("count"))! {
+        } else if (response?.hasSuffix("count"))! { // count operator
             let splitArray = response!.characters.split(separator: " ")
             print("Count: \(splitArray.count - 1)")
-        } else if (response?.hasSuffix("avg"))! {
+        } else if (response?.hasSuffix("avg"))! { // average operator
             let splitArray = response!.characters.split(separator: " ").map(String.init)
             if splitArray.count < 2 {
                 print("Invalid input for the \"average\" operator. Type \"help\" for help.")
@@ -51,7 +51,7 @@ while continute {
                 let total = splitArray.flatMap{ Double($0) ?? 0 }.reduce(0, +)
                 print("Avg: \(total / (Double)(splitArray.count - 1))")
             }
-        } else if (response?.hasSuffix(("fact")))! {
+        } else if (response?.hasSuffix(("fact")))! { // factorial operator
             let splitArray = response!.characters.split(separator: " ").map(String.init)
             if splitArray.count != 2 {
                 print("Invalid input for the \"factorial\" operator. Type \"help\" for help.")
@@ -88,13 +88,13 @@ while continute {
                             print("Result: \(String(describing: expn.expressionValue(with: nil, context: nil)!))")
                         }
                     } else {
-                        print("You did not enter a valid number.")
+                        print("You did not enter a valid number. Type \"help\" for help.")
                     }
                 } else {
-                    print("You did not enter a valid operator");
+                    print("You did not enter a valid operator. Type \"help\" for help.");
                 }
             } else {
-                print("You did not enter a valid number.")
+                print("You did not enter a valid number. Type \"help\" for help.")
             }
         }
         print("")
